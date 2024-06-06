@@ -9,11 +9,12 @@ def get_data(id=None):
     if id is not None:
         data={'id':id}
         #python to json data
+    headers={'content-Type':'application/json'}
     json_data=json.dumps(data)
-    r = requests.get(url=URL, data=json_data)
+    r = requests.get(url=URL,headers=headers, data=json_data)
     data = r.json()
     print(data)
-get_data() #read method
+#get_data() #read method
 
 #post
 
@@ -23,13 +24,14 @@ def post_data():
         'roll': 250,
         'city': 'ballia'
     }
+    headers={'content-Type':'application/json'}
     #convert in json data
     json_data=json.dumps(data)
     #sending rqst
-    r = requests.post(url=URL, data=json_data)
+    r = requests.post(url=URL,headers=headers, data=json_data)
     data = r.json()
     print(data)
-#post_data()
+post_data()
 
 #update
 
@@ -39,10 +41,11 @@ def update_data():
         'name': 'Sanjay',
         'city': 'Khejuri'
     }
+    headers={'content-Type':'application/json'}
     #convert in json data
     json_data=json.dumps(data)
     #sending rqst
-    r = requests.put(url=URL, data=json_data)
+    r = requests.put(url=URL, headers=headers, data=json_data)
     data = r.json()
     print(data)
 #update_data()
