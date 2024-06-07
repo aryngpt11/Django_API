@@ -1,5 +1,5 @@
 """
-URL configuration for browseapi project.
+URL configuration for genricapi project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,11 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('student_api/',student_api,name='student_api'),
-    path('student_api/<int:pk>',student_api,name='student_api')
 ]
-
