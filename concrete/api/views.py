@@ -23,7 +23,7 @@ class StudentRetrieve(RetrieveAPIView):
 class StudentUpdate(UpdateAPIView):
     queryset=Student.objects.all()
     serializer_class=StudentSerializers
-
+#Destroy
 class StudentDestroy(DestroyAPIView):
     queryset=Student.objects.all()
     serializer_class=StudentSerializers
