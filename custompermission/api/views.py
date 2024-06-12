@@ -1,0 +1,38 @@
+from .models import *
+from .serializers import *
+from rest_framework import viewsets
+from rest_framework.authentication import SessionAuthentication
+from .custompermissions import MyPermission
+#from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly
+class StudentModelViewSet(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializers
+    authentication_classes=[SessionAuthentication]
+    permission_classes=[MyPermission]
+
+"""     #isauthenticated only authorized person
+    #permission_classes=[IsAuthenticated] #all user are able to use this functionality who have the login crededintals like ssuperuser admin and normal user
+    permission_classes=[IsAuthenticatedOrReadOnly]
+class StudentModelViewSet1(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializers
+    authentication_classes=[SessionAuthentication]
+    permission_classes=[AllowAny]
+    
+class StudentModelViewSet2(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializers
+    authentication_classes=[SessionAuthentication]
+    permission_classes=[IsAdminUser]
+
+class StudentModelViewSet3(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializers
+    authentication_classes=[SessionAuthentication]
+    permission_classes=[DjangoModelPermissions]
+
+class StudentModelViewSet4(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializers
+    authentication_classes=[SessionAuthentication]
+    permission_classes=[DjangoModelPermissionsOrAnonReadOnly] """
